@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - Divine Digital Forum</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <h2>Divine Digital Forum</h2>
+        <a href="/">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="contact.html">Contact Admin</a>
+
+        <div id="welcomeMsg" style="margin-top:20px; color:white;"></div>
+
+        <div class="logout">
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+        <!-- Hamburger button -->
+        <button class="hamburger" id="hamburger">&#9776;</button>
+
+        <h1>Your Profile</h1>
+        <p id="profileMessage" style="color:red;"></p>
+        <div class="profile-box">
+            <input type="text" id="profileUsername" placeholder="Username">
+            <input type="email" id="profileEmail" placeholder="Email">
+            <input type="password" id="profilePassword" placeholder="New Password (optional)">
+            <button onclick="updateProfile()">Update Profile</button>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Divine Digital Forum © 2026 <br>
+    Powered by <b>Hummingbird Digital Solutions</b>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    // Sidebar toggle for mobile
+    const sidebar = document.getElementById("sidebar");
+    const hamburger = document.getElementById("hamburger");
+    hamburger.addEventListener("click", ()=>{
+        sidebar.classList.toggle("active");
+    });
+
+    // Load profile info
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user){
+        document.getElementById("welcomeMsg").innerText = "Hello, " + user.username;
+        document.getElementById("profileUsername").value = user.username;
+        document.getElementById("profileEmail").value = user.email;
+    } else {
+        // Redirect to home if not logged in
+        window.location = "/";
+    }
+</script>
+</body>
+</html>

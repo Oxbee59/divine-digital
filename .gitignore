@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# SQLite database
+data/
+
+# Uploaded images/videos
+uploads/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db

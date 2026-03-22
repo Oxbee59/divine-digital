@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Admin - Divine Digital Forum</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <h2>Divine Digital Forum</h2>
+        <a href="/">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="contact.html">Contact Admin</a>
+
+        <div id="welcomeMsg" style="margin-top:20px; color:white;"></div>
+
+        <div class="logout">
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+        <!-- Hamburger button -->
+        <button class="hamburger" id="hamburger">&#9776;</button>
+
+        <h1>Contact Admin</h1>
+        <p>If you need support or want to ask questions, click the button below to message the admin via WhatsApp:</p>
+        <a href="https://wa.me/233556025786" target="_blank" class="whatsapp-btn">Chat with Admin</a>
+    </div>
+
+</div>
+
+<footer>
+    Divine Digital Forum © 2026 <br>
+    Powered by <b>Hummingbird Digital Solutions</b>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    // Sidebar toggle for mobile
+    const sidebar = document.getElementById("sidebar");
+    const hamburger = document.getElementById("hamburger");
+    hamburger.addEventListener("click", ()=>{
+        sidebar.classList.toggle("active");
+    });
+
+    // Show welcome if logged in
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user){
+        document.getElementById("welcomeMsg").innerText = "Hello, " + user.username;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Digital Forum</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <h2>Divine Digital Forum</h2>
+        <a href="/">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="contact.html">Contact Admin</a>
+
+        <div id="welcomeMsg" style="margin-top:20px; color:white;"></div>
+
+        <div class="logout">
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <!-- Hamburger button for mobile -->
+        <button class="hamburger" id="hamburger">&#9776;</button>
+
+        <h1>Welcome to Divine Digital Forum</h1>
+
+        <!-- LOGIN / SIGNUP TOGGLE -->
+        <div class="auth-box">
+            <div class="tabs">
+                <button id="loginTab">Login</button>
+                <button id="signupTab">Sign Up</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <div id="loginForm" class="form">
+                <input type="email" id="loginEmail" placeholder="Email">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button onclick="login()">Login</button>
+                <p id="loginMessage"></p>
+            </div>
+
+            <!-- SIGNUP FORM -->
+            <div id="signupForm" class="form">
+                <input type="text" id="username" placeholder="Username">
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+                <button onclick="signup()">Sign Up</button>
+                <p id="message"></p>
+            </div>
+        </div>
+
+        <!-- POSTS FEED -->
+        <div id="postsFeed">
+            <h2>Latest Posts</h2>
+            <div id="feedList"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    Divine Digital Forum © 2026 <br>
+    Powered by <b>Hummingbird Digital Solutions</b>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    // Sidebar toggle for mobile
+    const sidebar = document.getElementById("sidebar");
+    const hamburger = document.getElementById("hamburger");
+    hamburger.addEventListener("click", ()=>{
+        sidebar.classList.toggle("active");
+    });
+
+    // Toggle login/signup forms
+    const loginTab = document.getElementById("loginTab");
+    const signupTab = document.getElementById("signupTab");
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+
+    loginTab.addEventListener("click", ()=>{
+        loginForm.style.display="block";
+        signupForm.style.display="none";
+    });
+    signupTab.addEventListener("click", ()=>{
+        loginForm.style.display="none";
+        signupForm.style.display="block";
+    });
+
+    // Default show signup if no user
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user){
+        document.getElementById("welcomeMsg").innerText = "Hello, " + user.username;
+        document.querySelector(".auth-box").style.display="none";
+    } else {
+        loginForm.style.display="none";
+        signupForm.style.display="block";
+    }
+</script>
+
+</body>
+</html>
