@@ -1,57 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<title>Admin Dashboard - Divine Digital Forum</title>
-<link rel="stylesheet" href="/admin/admin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Divine Digital Forum</title>
+
+    <!-- ✅ Fixed paths: relative to dashboard.html -->
+    <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
 
-<h1 style="text-align:center;">Divine Digital Forum Admin Dashboard</h1>
+    <h1 style="text-align:center;">Divine Digital Forum Admin Dashboard</h1>
 
-<div class="dashboard">
+    <div class="dashboard">
 
-<!-- CREATE POST -->
-<div class="section">
+        <!-- CREATE POST -->
+        <div class="section">
+            <h2>Create Post</h2>
 
-<h2>Create Post</h2>
+            <input type="text" id="title" placeholder="Post Title">
+            <textarea id="content" placeholder="Post content"></textarea>
+            <input type="file" id="image">
+            <input type="file" id="video">
+            <input type="text" id="link" placeholder="External Link">
 
-<input type="text" id="title" placeholder="Post Title">
+            <button onclick="createPost()">Publish Post</button>
+        </div>
 
-<textarea id="content" placeholder="Post content"></textarea>
+        <!-- POSTS AREA -->
+        <div class="section">
+            <h2>All Posts</h2>
+            <div id="postsList"></div>
+        </div>
 
-<input type="file" id="image">
+        <!-- USERS AREA -->
+        <div class="section">
+            <h2>Registered Users</h2>
+            <div id="usersList"></div>
+        </div>
 
-<input type="file" id="video">
+    </div>
 
-<input type="text" id="link" placeholder="External Link">
-
-<button onclick="createPost()">Publish Post</button>
-
-</div>
-
-<!-- POSTS AREA -->
-<div class="section">
-
-<h2>All Posts</h2>
-
-<div id="postsList"></div>
-
-</div>
-
-<!-- USERS AREA -->
-<div class="section">
-
-<h2>Registered Users</h2>
-
-<div id="usersList"></div>
-
-</div>
-
-</div>
-
-<script src="/admin/admin.js"></script>
+    <!-- ✅ Fixed paths: relative to dashboard.html -->
+    <script src="admin.js"></script>
 
 </body>
 
